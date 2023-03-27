@@ -1,6 +1,6 @@
 # dagster_poc
 
-This is a [Dagster](https://dagster.io/) project scaffolded with [`dagster project scaffold`](https://docs.dagster.io/getting-started/create-new-project).
+This is a [Dagster](https://dagster.io/) project that can be used as a template for data engineering @ RKI
 
 ## Getting started
 
