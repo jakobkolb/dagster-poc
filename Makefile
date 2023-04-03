@@ -7,6 +7,9 @@ dev:
 test:
 	poetry run pytest
 
+watch:
+	poetry run pytest -f
+
 lint:
 	poetry run flake8 && poetry run black . --check
 

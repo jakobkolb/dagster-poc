@@ -36,7 +36,7 @@ pipeline {
                       - name: HTTPS_PROXY
                         value: http://10.15.156.29:8020
                       - name: NO_PROXY
-                        value: harbor.it32.labor
+                        value: harbor-dev.tkpoc.it32.labor
                     restartPolicy: Never
                 """
             }
@@ -69,15 +69,15 @@ pipeline {
                         sh '''
                             # Setup login credentials for harbor. Note, you have to double escape the quotes because of
                             # https://stackoverflow.com/a/56596103
-                            export TOKEN=$(echo -n $username:$password | base64)
-                            echo "{\\"auths\\":{\\"harbor.it32.labor\\":{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\",\\"auth\\":\\"$TOKEN\\"}}}" > /kaniko/.docker/config.json
+                            export TOKEN=$(echo -n $username:$password | base64 -w 0)
+                            echo "{\\"auths\\":{\\"harbor-dev.tkpoc.it32.labor\\":{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\",\\"auth\\":\\"$TOKEN\\"}}}" > /kaniko/.docker/config.json
                             # Build and publish the image. Note you have to pass the proxy as build args.
                             cat /kaniko/.docker/config.json
                             /kaniko/executor \
                             --dockerfile=docker/Dockerfile \
                             --context=dir://. \
-                            --destination=harbor.it32.labor/devops/dagster-poc-it24:latest \
-                            --skip-tls-verify-registry=harbor.it32.labor \
+                            --destination=harbor-dev.tkpoc.it32.labor/devops/dagster-poc-it24:latest \
+                            --skip-tls-verify-registry=harbor-dev.tkpoc.it32.labor \
                             --build-arg "http_proxy=$HTTP_PROXY" \
                             --build-arg "https_proxy=$HTTPS_PROXY" \
                             --build-arg "HTTP_PROXY=$HTTP_PROXY" \
