@@ -72,6 +72,7 @@ pipeline {
                             export TOKEN=$(echo -n $username:$password | base64)
                             echo "{\\"auths\\":{\\"harbor.it32.labor\\":{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\",\\"auth\\":\\"$TOKEN\\"}}}" > /kaniko/.docker/config.json
                             # Build and publish the image. Note you have to pass the proxy as build args.
+                            cat /kaniko/.docker/config.json
                             /kaniko/executor \
                             --dockerfile=docker/Dockerfile \
                             --context=dir://. \
