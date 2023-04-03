@@ -36,7 +36,7 @@ pipeline {
                       - name: HTTPS_PROXY
                         value: http://10.15.156.29:8020
                       - name: NO_PROXY
-                        value: harbor.it32.labor
+                        value: harbor-dev.tkpoc.it32.labor
                     restartPolicy: Never
                 """
             }
