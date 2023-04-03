@@ -1,19 +1,19 @@
 # dagster_poc
 
-This is a [Dagster](https://dagster.io/) project scaffolded with [`dagster project scaffold`](https://docs.dagster.io/getting-started/create-new-project).
+This is a [Dagster](https://dagster.io/) project that can be used as a template for data engineering @ RKI
 
 ## Getting started
 
-First, install your Dagster code location as a Python package. By using the --editable flag, pip will install your Python package in ["editable mode"](https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs) so that as you develop, local code changes will automatically apply.
+This project is set up with make and poetry. To get started, run:
 
 ```bash
-pip install -e ".[dev]"
+make install
 ```
 
 Then, start the Dagster UI web server:
 
 ```bash
-dagster dev
+make dev
 ```
 
 Open http://localhost:3000 with your browser to see the project.
@@ -25,15 +25,20 @@ You can start writing assets in `dagster_poc/assets.py`. The assets are automati
 
 ### Adding new Python dependencies
 
-You can specify new Python dependencies in `setup.py`.
+You can add new Python dependencies in with poetry.
 
 ### Unit testing
 
 Tests are in the `dagster_poc_tests` directory and you can run tests using `pytest`:
 
 ```bash
-pytest dagster_poc_tests
+make test
 ```
+to run unit tests once or 
+```bash
+make watch
+```
+to run unit tests on file changes.
 
 ### Schedules and sensors
 
@@ -41,8 +46,8 @@ If you want to enable Dagster [Schedules](https://docs.dagster.io/concepts/parti
 
 Once your Dagster Daemon is running, you can start turning on schedules and sensors for your jobs.
 
-## Deploy on Dagster Cloud
+## Deploy on Dagster on premise
 
-The easiest way to deploy your Dagster project is to use Dagster Cloud.
+This project is set up with a Jenkinsfile that can be used to deploy to a Dagster on premise instance. To use it, set up a Jenkins pipeline on your [Jenkins Instance](https://jenkins.tkpoc.it32.labor/).
 
-Check out the [Dagster Cloud Documentation](https://docs.dagster.cloud) to learn more.
+[Contact your Dagster Administrator](mailto:kolbj@rki.de) to set up continous deployment of the image to our Dagster on premise deployment.
