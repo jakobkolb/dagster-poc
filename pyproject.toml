@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Jakob J. Kolb <jakob.j.kolb@gmail.com>"]
 readme = "README.md"
-packages = [{include = "dagster_poc"}]
+packages = [{include = "assets_dbt_python"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -31,7 +31,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.dagster]
-module_name = "dagster_poc"
+module_name = "assets_dbt_python"
 
 [tool.flake8]
 max-line-length = 120

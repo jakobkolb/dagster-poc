@@ -19,4 +19,5 @@ RUN rm -rf /root/.cache/pypoetry
 RUN rm -rf /root/.cache/pip
 
 # copy dagster assets
-COPY dagster_poc/ /dagster_poc/
+COPY assets_dbt_python/ /assets_dbt_python/
+COPY dbt_project/ /dbt_project/
