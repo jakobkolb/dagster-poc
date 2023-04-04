@@ -14,7 +14,9 @@ def users() -> pd.DataFrame:
             "company": np.random.choice(
                 ["FoodCo", "ShopMart", "SportTime", "FamilyLtd"], size=1000
             ),
-            "is_test_user": np.random.choice([True, False], p=[0.002, 0.998], size=1000),
+            "is_test_user": np.random.choice(
+                [True, False], p=[0.002, 0.998], size=1000
+            ),
         }
     )
 
@@ -23,6 +25,11 @@ def users() -> pd.DataFrame:
 def orders() -> pd.DataFrame:
     """A table containing all orders that have been placed"""
     return random_data(
-        extra_columns={"order_id": str, "quantity": int, "purchase_price": float, "sku": str},
+        extra_columns={
+            "order_id": str,
+            "quantity": int,
+            "purchase_price": float,
+            "sku": str,
+        },
         n=10000,
     )

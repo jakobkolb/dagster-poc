@@ -41,7 +41,9 @@ forecasting_assets = load_assets_from_package_module(
 
 # define jobs as selections over the larger graph
 everything_job = define_asset_job("everything_everywhere_job", selection="*")
-forecast_job = define_asset_job("refresh_forecast_model_job", selection="*order_forecast_model")
+forecast_job = define_asset_job(
+    "refresh_forecast_model_job", selection="*order_forecast_model"
+)
 
 resources = {
     # this io_manager allows us to load dbt models as pandas dataframes
